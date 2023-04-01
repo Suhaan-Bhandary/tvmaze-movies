@@ -46,18 +46,18 @@ function MovieDetail() {
                 </span>
               ))}
             </p>
+            <div
+              className={styles.summary}
+              dangerouslySetInnerHTML={{ __html: data?.summary || '' }}
+            ></div>
+            <button
+              className={styles.bookButton}
+              onClick={() => setShowMovieForm(true)}
+            >
+              Book Movie
+            </button>
           </div>
         </div>
-        <div
-          className={styles.summary}
-          dangerouslySetInnerHTML={{ __html: data?.summary || '' }}
-        ></div>
-        <button
-          className={styles.bookButton}
-          onClick={() => setShowMovieForm(true)}
-        >
-          Book Movie
-        </button>
       </div>
 
       {showMovieForm ? (
