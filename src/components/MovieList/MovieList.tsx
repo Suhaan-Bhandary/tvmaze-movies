@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getMovieList } from '../../services/movies.services';
 import MovieCard from '../MovieCard/MovieCard';
+import styles from './MoviesList.module.css';
 
 function MovieList() {
   const { data, isLoading, isError } = useQuery({
@@ -17,7 +18,7 @@ function MovieList() {
   }
 
   return (
-    <div>
+    <div className={styles.MovieList}>
       {data.map((movie) => (
         <MovieCard key={movie.show.id} movie={movie} />
       ))}

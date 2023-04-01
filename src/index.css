@@ -3,6 +3,7 @@
 :root {
   /* CSS Variables */
   --txt-light: 248, 249, 254;
+  --txt-dark: 12, 20, 37;
 
   --bg-white: 255, 255, 255;
   --bg-light: 248, 249, 254;
@@ -108,4 +109,11 @@ code {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Container Style */
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
 }
