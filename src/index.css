@@ -10,6 +10,7 @@
   --bg-dark: 12, 20, 37;
 
   --box-shadow: 0 12px 24px 2px rgb(129 146 179 / 8%);
+  --purple: 91, 47, 240;
 
   /* Set the background and color */
   background-color: rgb(var(--bg-dark));

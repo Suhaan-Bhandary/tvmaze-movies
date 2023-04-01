@@ -1,6 +1,8 @@
 .MovieCard {
   border-radius: 10px;
   position: relative;
+
+  box-shadow: var(--box-shadow);
 }
 
 .MovieCard > img {
@@ -23,6 +25,7 @@
 }
 
 .details .readBtn {
+  cursor: pointer;
   display: block;
   margin: 0.5rem;
 
@@ -30,10 +33,16 @@
 
   padding: 0.25rem;
   border-radius: 5px;
-  background-color: white;
-  color: rgb(var(--txt-dark));
+
+  background-color: rgb(var(--purple));
+  box-shadow: 0 2px 8px 0 rgba(117, 76, 255, 0.25);
+  color: rgb(var(--txt-light));
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all 0.2s, box-shadow 0.08s ease-in;
 }
 
 .details .readBtn:hover {
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(var(--purple), 0.8);
 }

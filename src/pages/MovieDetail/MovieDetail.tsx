@@ -47,6 +47,7 @@ function MovieDetail() {
           className={styles.summary}
           dangerouslySetInnerHTML={{ __html: data?.summary || '' }}
         ></div>
+        <button className={styles.bookButton}>Book Movie</button>
       </div>
     </div>
   );
