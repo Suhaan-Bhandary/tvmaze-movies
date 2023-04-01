@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BookMovieModal from '../../components/BookMovieModal/BookMovieModal';
 import { getMovie } from '../../services/movies.services';
 import styles from './MovieDetail.module.css';
 
 function MovieDetail() {
   const { id } = useParams();
+  const [showMovieForm, setShowMovieForm] = useState(false);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['movie', id],
@@ -20,7 +23,9 @@ function MovieDetail() {
   }
 
   return (
-    <div className={styles.MovieDetail}>
+    <div
+      className={`${styles.MovieDetail} ${showMovieForm ? styles.isOpen : ''}`}
+    >
       <div className="container">
         <div className={styles.banner}>
           <div className={styles.image}>
@@ -47,8 +52,21 @@ function MovieDetail() {
           className={styles.summary}
           dangerouslySetInnerHTML={{ __html: data?.summary || '' }}
         ></div>
-        <button className={styles.bookButton}>Book Movie</button>
+        <button
+          className={styles.bookButton}
+          onClick={() => setShowMovieForm(true)}
+        >
+          Book Movie
+        </button>
       </div>
+
+      {showMovieForm ? (
+        <BookMovieModal
+          closeCallBack={() => setShowMovieForm(false)}
+          movieName={data?.name || ''}
+          movieId={data?.id!}
+        />
+      ) : null}
     </div>
   );
 }

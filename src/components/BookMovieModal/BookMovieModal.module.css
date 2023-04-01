@@ -1,0 +1,113 @@
+.BookMovieModal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, 0.6);
+
+  z-index: 1000;
+}
+
+.container {
+  position: relative;
+  max-width: 450px;
+  width: 100%;
+  background: rgb(var(--bg-dark));
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  margin: 0 20px;
+  padding: 2rem;
+}
+
+.title {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background-color: rgb(var(--purple));
+  border-radius: 25px;
+}
+
+.inputField {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.inputField label {
+  color: rgb(var(--txt-light));
+  font-weight: 600;
+}
+
+.form :where(.inputField input, .inputField select) {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+
+.form :where(.inputField input:disabled) {
+  background-color: lightgray;
+  border: 1px solid lightgray;
+
+  user-select: none;
+}
+
+.form .inputFieldError :where(input, select) {
+  border-color: red;
+}
+
+.form :where(.inputField input:focus, .inputField select:focus) {
+  outline: 2px solid orange;
+  border-color: transparent;
+}
+
+.inputField input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  background-color: rgb(var(--purple));
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 rgba(117, 76, 255, 0.25);
+  color: rgb(var(--txt-light));
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  font-weight: 500;
+}
+
+.closeButton {
+  background-color: red;
+}
