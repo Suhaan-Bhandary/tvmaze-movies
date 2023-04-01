@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { BookedMovies } from '../../types/movies.types';
 import styles from './BookMovieModal.module.css';
 
 type Props = {
@@ -35,10 +36,23 @@ function BookMovieModal({ movieName, movieId, closeCallBack }: Props) {
     setIsLoading(true);
 
     // Add the data to the local storage
-    // TODO: Add todo logic to local storage
+    const BOOKED_MOVIE_KEY = 'booked-movies';
+
+    // Retrieving data from the local storage
+    const jsonData = localStorage.getItem(BOOKED_MOVIE_KEY);
+
+    // Added data to the booked movies
+    const bookedMovies: BookedMovies = jsonData ? JSON.parse(jsonData) : [];
+    bookedMovies.push({ movieName, movieId, name, email, date });
+
+    // Saving data to the local storage
+    localStorage.setItem(BOOKED_MOVIE_KEY, JSON.stringify(bookedMovies));
 
     // Set the loading state to false
     setIsLoading(false);
+
+    closeCallBack();
+    toast.success('Movie Booked Successfully');
   };
 
   return (

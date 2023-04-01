@@ -1,3 +1,11 @@
+export type BookedMovies = {
+  movieName: string;
+  movieId: number;
+  name: string;
+  email: string;
+  date: string;
+}[];
+
 export type MovieList = Movie[];
 
 export type Movie = {
